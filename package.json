@@ -1,0 +1,9 @@
+{
+  "name": "structured-feedback-framework",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portable static UAT feedback portal and delivery skill",
+  "scripts": {
+    "test": "node --test tests/core.test.cjs"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "projectId": "northstar-service-handoff",
+  "releaseId": "release-1",
+  "packId": "customer-handoff-uat",
+  "packVersion": "1.0.0",
+  "exportId": "fictional-export-001",
+  "exportedAt": "2026-11-12T12:00:00.000Z",
+  "testerReference": "Fictional reviewer 01",
+  "results": [
+    {
+      "storyId": "US-001",
+      "caseId": "UAT-002",
+      "caseRevision": 1,
+      "status": "Failed",
+      "actualResult": "Example only: the page saved a request without a Subject.",
+      "comment": "The expected required-field message did not appear.",
+      "severity": "Medium",
+      "evidenceReference": "Fictional evidence E-002 in the agreed project channel"
+    }
+  ],
+  "storyFeedback": [
+    {
+      "storyId": "US-001",
+      "comment": "Example only: clarify which priority to use for urgent requests."
+    }
+  ],
+  "packFeedback": "This is a fabricated feedback file for testing the importer; no Salesforce test was performed."
+}

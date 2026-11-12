@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Structured Feedback feedback",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "releaseId",
+    "packId",
+    "packVersion",
+    "exportId",
+    "exportedAt",
+    "testerReference",
+    "results",
+    "storyFeedback",
+    "packFeedback"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "projectId": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "releaseId": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "packId": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "packVersion": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "exportId": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time",
+      "maxLength": 80
+    },
+    "testerReference": {
+      "type": "string",
+      "pattern": "\\S",
+      "maxLength": 120
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "storyId",
+          "caseId",
+          "caseRevision",
+          "status",
+          "actualResult",
+          "comment",
+          "severity",
+          "evidenceReference"
+        ],
+        "properties": {
+          "storyId": {
+            "type": "string",
+            "maxLength": 120,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+          },
+          "caseId": {
+            "type": "string",
+            "maxLength": 120,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+          },
+          "caseRevision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "status": {
+            "enum": [
+              "Not tested",
+              "Passed",
+              "Failed",
+              "Blocked",
+              "Not applicable"
+            ]
+          },
+          "actualResult": {
+            "type": "string",
+            "maxLength": 20000
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 20000
+          },
+          "severity": {
+            "enum": [
+              "Unspecified",
+              "Low",
+              "Medium",
+              "High",
+              "Critical"
+            ]
+          },
+          "evidenceReference": {
+            "type": "string",
+            "maxLength": 20000
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "Failed",
+                    "Blocked"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "actualResult": {
+                  "type": "string",
+                  "pattern": "\\S",
+                  "maxLength": 20000
+                }
+              }
+            }
+          }
+        ]
+      },
+      "maxItems": 500
+    },
+    "storyFeedback": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "storyId",
+          "comment"
+        ],
+        "properties": {
+          "storyId": {
+            "type": "string",
+            "maxLength": 120,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 20000
+          }
+        }
+      },
+      "maxItems": 500
+    },
+    "packFeedback": {
+      "type": "string",
+      "maxLength": 20000
+    }
+  }
+}

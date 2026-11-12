@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Structured Feedback pack",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "projectId",
+    "releaseId",
+    "packId",
+    "packVersion",
+    "title",
+    "client",
+    "environment",
+    "intro",
+    "instructions",
+    "stories"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "projectId": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "releaseId": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "packId": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "packVersion": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 20000
+    },
+    "client": {
+      "type": "string",
+      "maxLength": 20000
+    },
+    "environment": {
+      "type": "string",
+      "maxLength": 20000
+    },
+    "intro": {
+      "type": "string",
+      "maxLength": 20000
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 20000
+      }
+    },
+    "stories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "objective",
+          "cases"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 120,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 20000
+          },
+          "objective": {
+            "type": "string",
+            "maxLength": 20000
+          },
+          "cases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "revision",
+                "title",
+                "role",
+                "preconditions",
+                "steps",
+                "expectedResult",
+                "testData"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "maxLength": 120,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+                },
+                "revision": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "title": {
+                  "type": "string",
+                  "maxLength": 20000
+                },
+                "role": {
+                  "type": "string",
+                  "maxLength": 20000
+                },
+                "preconditions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 20000
+                  },
+                  "minItems": 1
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 20000
+                  },
+                  "minItems": 1
+                },
+                "expectedResult": {
+                  "type": "string",
+                  "maxLength": 20000
+                },
+                "testData": {
+                  "type": "string",
+                  "maxLength": 20000
+                }
+              }
+            },
+            "minItems": 1
+          }
+        }
+      },
+      "minItems": 1
+    }
+  }
+}

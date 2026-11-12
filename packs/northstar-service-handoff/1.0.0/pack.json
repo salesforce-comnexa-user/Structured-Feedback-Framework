@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0",
+  "projectId": "northstar-service-handoff",
+  "releaseId": "release-1",
+  "packId": "customer-handoff-uat",
+  "packVersion": "1.0.0",
+  "title": "A clearer handoff, from request to follow-up",
+  "client": "Northstar Services \u00b7 fictional project",
+  "environment": "Fictional Salesforce UAT sandbox \u2014 no live org linked",
+  "intro": "A small service team wants every customer request to reach the right person, with enough context to act. Use this sample pack to explore how structured UAT feedback works.",
+  "instructions": [
+    "This is an example test specification, not evidence of a configured Salesforce implementation. A delivery team would configure and validate the sandbox before inviting testers.",
+    "For a real UAT cycle, follow each scenario in the agreed test environment. Record what happened and reference evidence in the approved project channel.",
+    "Export your feedback before leaving. Nothing you type is submitted to the delivery team automatically."
+  ],
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Capture a useful customer request",
+      "objective": "As a service coordinator, I want a complete request so that the delivery team can assess it without chasing missing information.",
+      "cases": [
+        {
+          "id": "UAT-001",
+          "revision": 1,
+          "title": "Create a request with clear customer context",
+          "role": "Service Coordinator",
+          "preconditions": [
+            "An active fictional Account named Northstar Services exists.",
+            "The tester has the agreed Service Coordinator permissions."
+          ],
+          "steps": [
+            "Open the agreed Customer Requests entry point.",
+            "Create a request for Northstar Services: \u201cReview weekend support coverage\u201d.",
+            "Enter the description: \u201cConfirm the service options and coverage available for weekend support.\u201d Set priority to Normal and save."
+          ],
+          "expectedResult": "The request saves once, receives a reference, and displays the correct Account, description, priority and initial status.",
+          "testData": "Account: Northstar Services; request: Review weekend support coverage. All data is fictional."
+        },
+        {
+          "id": "UAT-002",
+          "revision": 1,
+          "title": "Explain what is missing before saving",
+          "role": "Service Coordinator",
+          "preconditions": [
+            "The request form is available to the tester."
+          ],
+          "steps": [
+            "Start a new request.",
+            "Leave the required Subject field empty and attempt to save.",
+            "Enter \u201cReview weekend support coverage\u201d and complete the remaining required fields. Save again."
+          ],
+          "expectedResult": "The first attempt shows a clear required-field message without creating a request. After correction, exactly one request is saved.",
+          "testData": "Use a new sample request so existing results are not changed."
+        }
+      ]
+    },
+    {
+      "id": "US-002",
+      "title": "Give follow-up a clear owner",
+      "objective": "As a service coordinator, I want an authorised specialist to find and act on their assigned work.",
+      "cases": [
+        {
+          "id": "UAT-003",
+          "revision": 1,
+          "title": "Assign work and open it as the specialist",
+          "role": "Service Coordinator, then Solutions Specialist",
+          "preconditions": [
+            "A sample request exists.",
+            "Fictional test user Alex Morgan has the approved specialist role.",
+            "Separate authorised test sessions are available."
+          ],
+          "steps": [
+            "As the coordinator, create a follow-up task for the request: \u201cClarify weekend coverage\u201d.",
+            "Assign it to Alex Morgan with an agreed future due date and save.",
+            "Open the separate specialist session. Find and open the task and its related request."
+          ],
+          "expectedResult": "Alex sees the assigned task, due date and request context. The coordinator\u2019s and specialist\u2019s access matches the agreed acceptance criteria. A successful save alone does not prove the specialist can open the record.",
+          "testData": "Assignee: Alex Morgan; due date: choose a future business day in the UAT cycle."
+        }
+      ]
+    }
+  ]
+}
