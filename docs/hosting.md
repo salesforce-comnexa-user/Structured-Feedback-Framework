@@ -2,13 +2,13 @@
 
 ## Intended model
 
-Keep this source repository private. Publish only the approved fictional example as a public static page. Clients do not need a GitHub account to open a public Pages website. They need authorized repository access only if obtaining the source or skill from this private repository.
+This repository and its fictional example are intended to be public. Clients do not need a GitHub account to open the public Pages website or obtain the source.
 
 GitHub Pages supports private source repositories on eligible plans, including GitHub Pro and Team. Public Pages and private Pages are different. Do not change repository visibility or purchase a plan just to work around an unavailable Pages setting without the owner's agreement.
 
 ## Current repository status
 
-Checked on 12 November 2026: GitHub Settings → Pages displayed **“Upgrade or make this repository public to enable Pages.”** Public deployment from this private repository is therefore blocked by the current account plan. No visibility change or plan purchase was performed. The ready-to-download HTML in `distribution/` can be shared through an approved channel meanwhile.
+On 12 November 2026 the private repository required an account upgrade or a change to public visibility to enable Pages. The repository owner chose public visibility. Verify deployment status in Settings → Pages and the workflow run.
 
 ## One-time setup
 
