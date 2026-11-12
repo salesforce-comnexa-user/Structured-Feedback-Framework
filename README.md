@@ -23,7 +23,7 @@ The first example is a **fictional Salesforce service-request project** with two
 - [Installable Codex skill ZIP](distribution/structured-feedback-skill-1.0.0.zip) — extract and install as described in the skill guide.
 - [Checksums](distribution/SHA256SUMS).
 
-The public Pages site is **not enabled**: on 12 November 2026 the account's Pages settings required an upgrade or a public repository. The repository remains private. See [hosting](docs/hosting.md) for the next decision.
+The example is intended for public GitHub Pages. See [hosting](docs/hosting.md) for publication and verification guidance.
 
 ## Quick start
 
@@ -57,7 +57,7 @@ Feedback is **not sent automatically**. The client exports the JSON and returns 
 
 ## Publication model
 
-The source repository can remain private while the Pages website is public, where the GitHub plan supports this. Only the generated example HTML is uploaded by the workflow. Private source does not make published HTML confidential. See [hosting instructions](docs/hosting.md) before enabling Pages.
+The source repository and example Pages site are intended to be public. Only the generated example HTML is uploaded by the workflow. Private source does not make published HTML confidential. See [hosting instructions](docs/hosting.md) before enabling Pages.
 
 ## Project layout
 
